@@ -1,18 +1,12 @@
 # MAC Address Barcode Generator
 
-This Android application displays a barcode of the connected host computer's MAC address.
+Android application to display a barcode of the connected host computer's MAC address. For use with E-ink display phones in case an LCD screen is incompatible with the scanner.
 
-## The Problem
+![photo](docs/IMG20260317124240.jpg "photo")
 
-Modern Android versions (10+) have significant privacy and security restrictions that prevent applications from accessing hardware identifiers, including the MAC addresses of connected devices. Attempts to read the ARP table (e.g., from `/proc/net/arp` or using the `ip neighbor` command) will fail or return empty results, even with root access in some cases, especially over USB connections where the interface might operate without using ARP (`NOARP` flag).
+## Overview
 
-This makes it impossible for the Android device to automatically determine the MAC address of the computer it's connected to.
-
-## The Solution
-
-This project uses a workaround: the host computer (your laptop/desktop) determines its own MAC address and passes it to the Android application when it's launched via the Android Debug Bridge (ADB).
-
-The Android app has been programmed to accept a `MAC_ADDRESS` string from the launch command's "intent extras".
+This project uses the host computer to determine its own MAC address and pass it to the Android application when it's launched via the Android Debug Bridge (ADB). The app has been programmed to accept a `MAC_ADDRESS` string from the launch command's "intent extras".
 
 ## How to Use
 
