@@ -1,0 +1,2 @@
+ .\gradlew installDebug
+$laptopMac = (Get-NetAdapter | Where-Object Status -eq "Up" | Select-Object -First 1).MacAddress.Replace("-", ":"); adb shell am start -S -n com.example.macqrcode/.MainActivity -e "MAC_ADDRESS" "$laptopMac"
